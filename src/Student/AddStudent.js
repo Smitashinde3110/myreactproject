@@ -1,0 +1,74 @@
+import React, { useState } from "react";
+import axios from 'axios'
+import { useNavigate } from "react-router-dom";
+import { Button, FormControl, FormGroup, Input, InputLabel, makeStyles, Typography } from "@material-ui/core";
+import { MyAddStudent } from "../Component/Layout/Api";
+
+const usestyle=makeStyles({
+  container:{
+    width:'50%',
+    margin:'5% 0 0 25%',
+    '&>*':{
+      marginTop:20
+    }
+  }
+})
+
+const initialValues={
+  name:"",
+  dept:"",
+  standard:"",
+  year:""
+
+}
+
+export const AddStudent = () => {
+
+ // const [student,setStudent]=useState(initialValues);
+ const [student,setStudent]=useState(initialValues);
+ const {name,dept,standard,year}=student;
+  const classes=usestyle();
+  const navi=useNavigate();
+
+
+  const onValueChange=(e) =>
+  {
+    
+    setStudent({...student, [e.target.name]:e.target.value})
+  }
+
+  const addStudentDetails= async()=>
+  {
+    await MyAddStudent(student)
+  }
+
+  return (
+    <FormGroup className={classes.container}>
+      <Typography variant="h4">Add Student</Typography>
+      <FormControl>
+        <InputLabel>Name</InputLabel>
+        <Input onChange={(e)=>onValueChange(e)} name='name' value={name}/>
+      </FormControl>
+
+      <FormControl>
+        <InputLabel>Department</InputLabel>
+        <Input   onChange={(e)=>onValueChange(e)}  name='dept' value={dept}/>
+      </FormControl>
+
+      <FormControl>
+        <InputLabel>Standard</InputLabel>
+        <Input   onChange={(e)=>onValueChange(e)} value={standard}  name='standard'/>
+      </FormControl>
+
+      <FormControl>
+        <InputLabel>Year</InputLabel>
+        <Input  onChange={(e)=>onValueChange(e)} value={year} name='year'/>
+      </FormControl>
+{/* <Button variant="contained" onClick={()=>addStudentDetails()} color="primary">Submit</Button> */}
+<Button variant="contained" onClick={() => { addStudentDetails(); navi("/");}} color="primary">Submit</Button>
+
+    </FormGroup>
+  );
+};
+
+

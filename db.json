@@ -1,0 +1,39 @@
+{
+  "students": [
+    {
+      "studId": 1,
+      "name": "Ram",
+      "dept": "Mehanical",
+      "standard": "TE",
+      "year": 2021
+    },
+    {
+      "studId": 2,
+      "name": "Smita",
+      "dept": "CS",
+      "standard": "SE",
+      "year": 2022
+    },
+    {
+      "studId": 3,
+      "name": "Mahesh",
+      "dept": "ENTC",
+      "standard": "FE",
+      "year": 2020
+    },
+    {
+      "studId": 4,
+      "name": "Rutika",
+      "dept": "Civil",
+      "standard": "TE",
+      "year": 2021
+    },
+    {
+      "studId": 5,
+      "name": "Sakshi",
+      "dept": "CSE",
+      "standard": "TE",
+      "year": 2023
+    }
+  ]
+}
